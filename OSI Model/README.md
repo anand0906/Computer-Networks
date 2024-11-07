@@ -294,6 +294,7 @@
  
  <h3>Physical Layer</h3>
  <p>The <strong>Physical Layer</strong> is the first layer in the OSI model. It is responsible for the actual transmission of raw data over the physical medium (like cables, fiber optics, or wireless signals) between devices in a network. Let's break it down in simple terms:</p>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20241015103017414021/physical-layer.png">
 
 <strong>1. Purpose of the Physical Layer</strong>
 <ul>
@@ -493,4 +494,125 @@
 </table>
 
 <p>In short, the <strong>Data Link Layer</strong> deals with data transmission within a local network, ensuring reliable communication, while the <strong>Network Layer</strong> focuses on routing data across multiple networks and determining the best path for that data.</p>
+
+
+<h2>Example</h2>
+<p><strong>Scenario:</strong> Sending an Email from Person A to Person B</p>
+
+<p><strong>Step-by-Step OSI Model Data Flow:</strong></p>
+
+<ol>
+  <li>
+    <strong>Application Layer:</strong>
+    <p><strong>Example:</strong> Person A opens Gmail on their web browser and writes an email to Person B.</p>
+    <p><strong>What Happens:</strong> The web browser (Gmail) acts as the application that allows Person A to compose and send the email.</p>
+  </li>
+  
+  <li>
+    <strong>Presentation Layer:</strong>
+    <p><strong>Example:</strong> Gmail converts the email content into a format suitable for transmission. If the email content needs to be encrypted (for security), this layer handles the encryption.</p>
+    <p><strong>What Happens:</strong> The email content is prepared and formatted, ensuring that both Person A and Person B's devices can understand it.</p>
+  </li>
+  
+  <li>
+    <strong>Session Layer:</strong>
+    <p><strong>Example:</strong> Gmail establishes a connection with Person B’s email server. This connection remains active until the email is fully transmitted.</p>
+    <p><strong>What Happens:</strong> The layer manages the start, maintenance, and termination of the communication session.</p>
+  </li>
+  
+  <li>
+    <strong>Transport Layer:</strong>
+    <p><strong>Example:</strong> The email is broken into smaller data segments. Think of it as splitting a long letter into multiple pages.</p>
+    <p><strong>What Happens:</strong> The segments are assigned sequence numbers so they can be reassembled correctly, and error-checking information is added to ensure data is not corrupted during transmission.</p>
+  </li>
+  
+  <li>
+    <strong>Network Layer:</strong>
+    <p><strong>Example:</strong> The email data segments are converted into packets. The sender's and receiver's IP addresses are added to these packets.</p>
+    <p><strong>What Happens:</strong> This layer determines the best route for the packets to take through the network to reach Person B.</p>
+  </li>
+  
+  <li>
+    <strong>Data Link Layer:</strong>
+    <p><strong>Example:</strong> The packets are further encapsulated into frames, and the MAC addresses (unique identifiers for network devices) are added for communication within the local network.</p>
+    <p><strong>What Happens:</strong> Error detection is applied to the frames to ensure they are free of errors as they move through the network.</p>
+  </li>
+  
+  <li>
+    <strong>Physical Layer:</strong>
+    <p><strong>Example:</strong> The frames are converted into electrical signals or light pulses and sent over the physical medium, like an Ethernet cable or WiFi.</p>
+    <p><strong>What Happens:</strong> The email data is transmitted from Person A’s device, through the network, to Person B’s email server.</p>
+  </li>
+</ol>
+
+<p><strong>Receiving Process:</strong></p>
+
+<ol>
+  <li>The email reaches Person B’s device, and the data flows back up the OSI Model layers in reverse order:</li>
+  <ul>
+    <li><strong>Physical Layer:</strong> The signals are received and converted back into frames.</li>
+    <li><strong>Data Link Layer:</strong> Error detection checks are performed, and the frames are unpacked into packets.</li>
+    <li><strong>Network Layer:</strong> The packets are reassembled based on the IP addresses.</li>
+    <li><strong>Transport Layer:</strong> The segments are reassembled in the correct order, and error checks are performed.</li>
+    <li><strong>Session Layer:</strong> The communication session is maintained until all data is received.</li>
+    <li><strong>Presentation Layer:</strong> The email data is decrypted (if needed) and formatted for viewing.</li>
+    <li><strong>Application Layer:</strong> Finally, the email appears in Person B's Gmail inbox.</li>
+  </ul>
+</ol>
+
+<p><strong>Result:</strong> Person B can now read the email in their inbox, and the process is complete.</p>
+
+
+<h2>Protocals Used In OSI</h2>
+<table border="1">
+  <tr>
+    <th>Layer</th>
+    <th>Working</th>
+    <th>Protocol Data Unit</th>
+    <th>Protocols</th>
+  </tr>
+  <tr>
+    <td>1 – Physical Layer</td>
+    <td>Establishing Physical Connections between Devices.</td>
+    <td>Bits</td>
+    <td>USB, SONET/SDH, etc.</td>
+  </tr>
+  <tr>
+    <td>2 – Data Link Layer</td>
+    <td>Node to Node Delivery of Message.</td>
+    <td>Frames</td>
+    <td>Ethernet, PPP, etc.</td>
+  </tr>
+  <tr>
+    <td>3 – Network Layer</td>
+    <td>Transmission of data from one host to another, located in different networks.</td>
+    <td>Packets</td>
+    <td>IP, ICMP, IGMP, OSPF, etc.</td>
+  </tr>
+  <tr>
+    <td>4 – Transport Layer</td>
+    <td>Take Service from Network Layer and provide it to the Application Layer.</td>
+    <td>Segments (for TCP) or Datagrams (for UDP)</td>
+    <td>TCP, UDP, SCTP, etc.</td>
+  </tr>
+  <tr>
+    <td>5 – Session Layer</td>
+    <td>Establishes Connection, Maintenance, Ensures Authentication and Ensures security.</td>
+    <td>Data</td>
+    <td>NetBIOS, RPC, PPTP, etc.</td>
+  </tr>
+  <tr>
+    <td>6 – Presentation Layer</td>
+    <td>Data from the application layer is extracted and manipulated in the required format for transmission.</td>
+    <td>Data</td>
+    <td>TLS/SSL, MIME, JPEG, PNG, ASCII, etc.</td>
+  </tr>
+  <tr>
+    <td>7 – Application Layer</td>
+    <td>Helps in identifying the client and synchronizing communication.</td>
+    <td>Data</td>
+    <td>FTP, SMTP, DNS, DHCP, etc.</td>
+  </tr>
+</table>
+
 
